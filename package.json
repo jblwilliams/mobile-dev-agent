@@ -1,15 +1,36 @@
 {
   "name": "mobile-dev-agent",
-  "private": true,
+  "version": "0.1.0",
+  "description": "A small Node-based CLI wrapper to make Maestro + iOS/Android automation easier to drive from agent workflows",
+  "author": "Justin Williams",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jblwilliams/mobile-dev-agent.git"
+  },
+  "keywords": [
+    "maestro",
+    "ios",
+    "android",
+    "automation",
+    "simulator",
+    "emulator",
+    "agent",
+    "cli"
+  ],
   "type": "module",
   "bin": {
-    "mobile-dev-agent": "./dist/src/bin/mobile-dev-agent.js"
+    "mobile-dev-agent": "dist/src/bin/mobile-dev-agent.js"
   },
+  "files": [
+    "dist/src"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test dist/test/*.test.js",
     "lint": "eslint src test",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=22.0.0"
